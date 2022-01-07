@@ -7,7 +7,7 @@ get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 #这里当我们的文件目录名中间有空格，就替换成下划线如：clan guage 替换成 clan_guage
 string(REPLACE " " "_" ProjectId ${ProjectId})
 # 项目名称
-project(clanguage C)
+project(clanguages C)
 # 项目使用的是哪个版本号，这里是 23 为最新的版本
 set(CMAKE_C_STANDARD 23)
 
