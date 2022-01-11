@@ -7,10 +7,10 @@
 ```c
 #include<stdio.h>
 int a = 256;int main(){for(char b[a+a+a],
-*c=b ,*d=b+ a ,*e=b+a+a,*f,*g=fgets(e,(b[
-a]=b [a+a] =a- a,a) , stdin);c[0]=a-a,f=c
-,c=d ,d=e ,e=f, f= g,g =0,g = fgets(e,a+a
--a+ a -a+a -a+ a- +a,stdin ),f +a-a ; pu\
+*c=b ,*d=b+ a ,*e=b+a+a,*F,*G=fgets(e,(b[
+a]=b [a+a] =a- a,a) , stdin);c[0]=a-a,F=c
+,c=d ,d=e ,e=f, F= g,g =0,G = fgets(e,a+a
+-a+ a -a+a -a+ a- +a,stdin ),F +a-a ; pu\
 tchar(+10)) { for( int h= 1,i=1,j, k=0 ,l
 =e[0]==32,m,n=0,o=c [ 0]== 32, p, q=0;d[q
 ];j=k,k=l,m=n,n=o,p=(j)+(k* 2 )+(l =(i = 
