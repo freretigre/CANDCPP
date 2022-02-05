@@ -21,5 +21,4 @@ file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.c")
 foreach(file ${files})
     get_filename_component(name ${file} NAME)
     add_executable(${name} ${file} src/factorial.c) # src/factorial.c 是把源文件给添加进来，并执行它，在这里.h 的头文件不需要再次引入进来，因为我们在 main.c 里引入了。因为它可以找到函数的实现，就可以了
-    target_compile_definitions(${name} PUBLIC DEBUG) #define DEBUG // 如果我不想到代码当中，明确的定义出DEBUG来呢，我要在编译的时候，传一个个编译的参数来控制，怎以办呢，如下操作
 endforeach() # 结束遍历

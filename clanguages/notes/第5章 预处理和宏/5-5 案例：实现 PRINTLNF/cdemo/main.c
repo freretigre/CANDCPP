@@ -41,7 +41,7 @@ void Printlnf(const char* format, ...){
  */
 #define PRINT_INT(value) PRINTLNF(#value": %d", value) // 传入 #value 就会把这个 value 字符串打印出来，
 
-// 4、要在打印的时候，把 所在的文件，所在的函数，行号都打印出来，使用强大的宏
+// 4、要在打印的时间，把 所在的文件，所在的函数，行号都打印出来，使用强大的宏
 /**
  * __FILE__ 所在的文件
  * __LINE__ 所在的代码行号
@@ -73,7 +73,7 @@ int main(){
   PRINT_INT(3 + 4); // 3+4: 7
 
 
-  // 4、要在打印的时候，把 所在的文件，所在的函数，行号都打印出来，使用强大的宏
+  // 4、要在打印的时间，把 所在的文件，所在的函数，行号都打印出来，使用强大的宏
   PRINTS_INT(x); // (/Users/singjeun/FileRelated/Codes/candcppkit/clanguages/main.c:77) main : x: 3
 
 
