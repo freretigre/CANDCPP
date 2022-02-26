@@ -3,6 +3,8 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <io_utils.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define PRINTLNFS(format, ...) printf("("__FILE__":%d) %s : "format"\n", __LINE__, __FUNCTION__, ##__VA_ARGS__)
 #define PRINTS_INT(value) PRINTLNFS(#value": %d", value)
@@ -44,53 +46,44 @@ void SumIntArrays( int rows, int columns, int array[][columns], int result[]){
   }
 }
 
+
+// 交换数组的元素
+void SwapElements(int array[], int first, int second) {
+  // 开廦一个临时存储空间,存储一下
+  int temp = array[first];
+
+  // 把最后一步做数据交换
+  array[first] = array[second];
+  // 这样就把数据位置，就完成了
+  array[second] = temp;
+
+}
+// 打乱数组的顺序 方法
+void ShuffleArray(int array[], int length){
+
+  // 实现乱序，这时就需要一个随机数，是需要一个库为 stdlib.h, 还要种一个种子进去，还要导入一个 time.h 的库进来
+  srand(time(NULL)); // 先种一个种子，以免拿到的每一次结果都是一样的, 要把这个 time 传进去 srand() 的方法，返回的值，就是一个整数
+  // 这样就可以拿到一个随机数
+  for(int i = 0; i < length; ++i){
+    int random_number = rand() % length;
+    SwapElements(array, i, random_number);
+  }
+}
+
+
+#define PLAYER_COUNT 50 // 数组长度的宏
+
 int main(){
-  // 6-5 二维数组【数组参数的正确使用姿势】
+  // 6-6 案例：打乱数组的顺序【各种场景应用】
 
-
-  // 定义一个数组
-  /**
-   * 如北京5天限号，每天限2个
-   * 5 是 5 天限号
-   * 2 是每天限 2 个号
-   * 数组定义如下
-   */
-//  int vehicle_limits[5][2];
-  int vehicle_limitsa[5][2] = { // 初始化数组，里面是 二维数组
-      {0, 5},
-      {1, 6},
-      {2, 7},
-      {3, 8},
-      {4, 9},
-  };
-
-  // 我们也要吧修改成一维数组，并修改成二维数组，如下
-  int vehicle_limits[5][2] = {0, 5,1, [1][1]=6,2, 7,3, 8,4, 9};
-
-  // int [2] 获取长度为 2 的 一维数组, 长度是确定的
-  // vehicle_limits[0];
-  for(int i = 0; i < 5; ++i){  // 5 是 5 天限号
-    for(int j = 0; i < 2; ++j){  // 是每天限 2 个号
-      vehicle_limits[i][j] = i + j; // 先得取了一维数组，再取到二维数据
-    }
+  int players[PLAYER_COUNT]; // 初始化数组值和长度
+  for(int i = 0; i < 49; ++i){
+    players[i] = i;
   }
 
+  PRINT_ARRAY(players, PLAYER_COUNT);
 
-  /**
-   * 比如一个班有 5 个人，有 4 个科目
-   */
-   int scores[5][4] = {
-       {135, 135, 138, 277},
-       {105, 134, 108, 265},
-       {113, 107, 145, 232},
-       {123, 99, 140, 227},
-       {98, 118, 127, 242}
-   };
-
-   // 求总分
-   int result[5] = {0};
-  SumIntArrays(5, 4, scores, result);
-  PRINT_INT_ARRAY(result, 5);
+  ShuffleArray(players, PLAYER_COUNT);
 
   return 0;
 }
