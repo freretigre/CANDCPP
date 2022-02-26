@@ -67,6 +67,8 @@ void ShuffleArray(int array[], int length){
   for(int i = 0; i < length; ++i){
     int random_number = rand() % length;
     SwapElements(array, i, random_number);
+
+    // 4:37 分
   }
 }
 
